@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {ROUTES} from './app.routes'
@@ -22,7 +23,8 @@ import {ShoppingCartService} from './restaurant-detail/shopping-cart/shopping-ca
 import {OrderService} from './order/order.service';
 import { OrderSumaryComponent } from './order-sumary/order-sumary.component';
 
-import { SharedModule } from './shared/shared.module'
+import { SharedModule } from './shared/shared.module';
+import { NotFoundComponent } from './not-found/not-found.component'
 
 @NgModule({
   declarations: [
@@ -36,13 +38,15 @@ import { SharedModule } from './shared/shared.module'
     ShoppingCartComponent,
     MenuItemComponent,
     ReviewsComponent,
-    OrderSumaryComponent
+    OrderSumaryComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(ROUTES),
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule
   ],
   providers: [RestaurantsService, ShoppingCartService, OrderService, {provide: LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
